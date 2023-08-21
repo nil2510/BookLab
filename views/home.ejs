@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BookLab Home</title>
+    <link rel="icon" id="title_inage" href="../public/img/logo.png">
+
+    <link rel="stylesheet" href="../public/css/index.css">
+    <link rel="stylesheet" href="../public/css/slide.css">
+    <link rel="stylesheet" href="../public/css/about.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Hind&family=Kalam&family=Poppins:wght@400;500;600&family=Ropa+Sans&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="logo" class="nav_items">
+                <a href="/home">
+                    <img src="../public/img/logo.png" alt="BookLab">
+                </a>
+            </div>
+            <div id="search" class="nav_items">
+                <form action="" method="POST">
+                    <input type="search" placeholder="Search for books.." name="search" id="searchinput">
+                    <button type="submit" id="searchbutton">Search</button>
+                </form>
+            </div>
+
+            <div id="nav_menu" class="nav_items">
+                <ul>
+                    <% if (user_id) {%>
+                        <li><a href="/profile" class="signimg"><img src="/public/img/profile_icon.png"></a></li>
+                        <% } else {%>
+                            <li><a href="/signin" class="signtext">Sign In</a></li>
+                            <li><a href="/signup" class="signtext">Sign Up</a></li>
+                            <% }%>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div>
+        <div class="slide">
+            <img src="../public/img/img1.jpg" alt="Slide 1">
+        </div>
+        <div class="slide">
+            <img src="../public/img/img2.jpg" alt="Slide 2">
+        </div>
+        <div class="slide">
+            <img src="../public/img/img4.jpg" alt="Slide 3">
+        </div>
+    </div>
+
+    <div id="container">
+        <h1>Trending List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Library Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(data.length){ for(var i=0; i < data.length; i++) {%>
+                    <tr>
+                        <td>
+                            <%= data[i].book_name %>
+                        </td>
+                        <td>
+                            <%= data[i].author %>
+                        </td>
+                        <td>
+                            <%= data[i].lib_name %>
+                        </td>
+                    </tr>
+                    <% } }else{ %>
+                        <tr>
+                            <td>No data ever existed.</td>
+                        </tr>
+                        <% } %>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About Us</h2>
+            <p>Welcome to our website! We are a team of passionate individuals...</p>
+        </div>
+    </div>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close2">&times;</span>
+            <h2>Contact Us</h2>
+            <p>For all inquiries or assistance, our dedicated support team is ready to help. Reach out to us via email
+                at sunilpradhan8526@gmail.com or give us a call at +91 7008526003. We value your feedback and strive to
+                provide swift responses. Stay connected with us on social media @examplehandle for updates and
+                announcements. Your satisfaction is our priority, and we look forward to serving you.</p>
+        </div>
+    </div>
+
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close3">&times;</span>
+            <h2>Services</h2>
+            <p>Creating a platform where individuals can list their books as a library and others can search and locate
+                them is a great idea for a library website. Here are some dummy services that you could offer on your
+                library website:
+                <br>
+                1. **Library Registration:**<br>
+                Allow individuals or organizations to register their libraries on the platform. They can provide
+                information about the library's name, location, operating hours, and contact details.
+                <br>
+                2. **Book Listing:**<br>
+                Registered libraries can list their books by providing details such as title, author, genre, publication
+                year, ISBN, and a brief description. They could also upload cover images for the books.
+                <br>
+                3. **Search and Browse:**<br>
+                Users can search for books based on various criteria like title, author, genre, or ISBN. They can also
+                browse through categories and genres to discover new books.
+                <br>
+                4. **Location Mapping:**<br>
+                Provide a map interface that displays the locations of registered libraries. Users can see where each
+                library is located and get directions to visit them.
+                <br>
+                5. **Book Availability and Reservation:**<br>
+                Users can check the availability of a specific book at different registered libraries. If a book is
+                available at multiple libraries, they can choose the most convenient one. Users could also have the
+                option to reserve a book for a specific period.
+                <br>
+                6. **User Reviews and Ratings:**<br>
+                Allow users to leave reviews and ratings for books they have borrowed from various libraries. This helps
+                other users make informed decisions when selecting books.
+                <br>
+                7. **Library Recommendations:**<br>
+                Provide personalized book recommendations based on a user's reading history, preferences, and ratings.
+                <br>
+                8. **Library Events and Workshops:**<br>
+                Libraries can list upcoming events, workshops, book clubs, and other literary activities. Users can
+                browse and participate in these events.
+                <br>
+                9. **User Profiles:**<br>
+                Allow users to create profiles where they can keep track of their borrowed books, wishlist, favorite
+                libraries, and reviews.
+                <br>
+                10. **Communication Platform:**<br>
+                Provide a messaging system that allows users to communicate with libraries, ask questions about book
+                availability, or request special orders.
+                <br>
+                11. **Admin Dashboard:**<br>
+                A dashboard for library administrators to manage their book listings, update library information, and
+                handle user inquiries.
+                <br>
+                12. **Mobile App Integration:**<br>
+                Create a mobile app version of the website for users to easily access library services on the go.
+                <br>
+                13. **Advanced Search Filters:**<br>
+                Enhance the search functionality with filters like language, format (ebook, print), and reading level.
+                <br>
+                14. **API Integration:**<br>
+                Offer an API that allows developers to integrate your library services into other applications or
+                websites.
+                <br>
+                15. **Social Sharing and Bookmarking:**<br>
+                Allow users to share their favorite books, libraries, and events on social media platforms, as well as
+                bookmark items for future reference.
+                <br>
+                Remember, these are just dummy services to help you brainstorm. As you develop your library website, you
+                can refine and expand these services based on user feedback and needs.!
+            </p>
+        </div>
+    </div>
+
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close4">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p>**Effective Date: 18th Aug 23**
+                <br>
+                **1. Introduction**
+                <br>
+                Welcome to BookLab ("we", "us", or "our"). We are committed to protecting your privacy
+                and handling your personal information with care. This Privacy Policy outlines how we collect, use, and
+                safeguard your information when you use our website. By accessing or using [Library Website URL], you
+                consent to the practices described in this Privacy Policy.
+                <br>
+                **2. Information We Collect**
+                <br>
+                2.1. **User-Provided Information**: When you use our website, you may provide us with certain
+                information voluntarily, such as your name, email address, and other contact details when submitting a
+                library listing.
+                <br>
+                2.2. **Book Listings Information**: Users can list books and relevant details, such as title, author,
+                publication date, and location of the book within the library.
+                <br>
+                2.3. **Search Queries**: We may collect information related to search queries, including search terms
+                and the results you view.
+                <br>
+                **3. How We Use Your Information**
+                <br>
+                3.1. **Library Listings**: We use the information you provide to display your library listing on the
+                website and facilitate communication between users interested in your library.
+                <br>
+                3.2. **Search Functionality**: Your search queries help us improve our search functionality and provide
+                you with relevant search results.
+                <br>
+                3.3. **Communication**: We may use your contact information to communicate with you about your library
+                listing, updates to our services, and respond to your inquiries.
+                <br>
+                3.4. **Analytics and Improvements**: We may use aggregated and anonymized data to analyze usage
+                patterns, improve our website's performance, and enhance user experience.
+                <br>
+                **4. Sharing of Information**
+                <br>
+                4.1. **Public Listings**: Your library listing, including the books you list and their details, may be
+                publicly accessible on our website.
+                <br>
+                4.2. **Third-Party Service Providers**: We may engage third-party service providers to assist with
+                website hosting, maintenance, and analytics. These providers may have access to your information solely
+                for these purposes.
+                <br>
+                4.3. **Legal Requirements**: We may disclose your information if required by law or in response to legal
+                requests, such as subpoenas or court orders.
+                <br>
+                **5. Your Choices**
+                <br>
+                5.1. **Updating Information**: You can update or correct your library listing information by logging
+                into your account.
+                <br>
+                5.2. **Opting Out**: You can opt out of receiving promotional communications from us at any time by
+                following the instructions provided in our communications.
+                <br>
+                **6. Security**
+                <br>
+                We take reasonable measures to protect your information from unauthorized access, use, or disclosure.
+                However, please be aware that no security measures can provide absolute protection.
+                <br>
+                **7. Children's Privacy**
+                <br>
+                Our website is not directed at individuals under the age of 13. We do not knowingly collect personal
+                information from children. If you believe we have collected information from a child under 13, please
+                contact us immediately.
+                <br>
+                **8. Changes to this Privacy Policy**
+                <br>
+                We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the
+                effective date will be updated accordingly. Your continued use of our website after any changes
+                indicates your acceptance of the revised Privacy Policy.
+                <br>
+                **9. Contact Us**
+                <br>
+                If you have any questions or concerns about this Privacy Policy or our practices, please contact us at
+                sunilpradhan8526@gmail.com.
+                <br>
+                By using our website, you acknowledge that you have read and understood this Privacy Policy and agree to
+                its terms.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div id="links">
+            <ul>
+                <li><a href="#contactButton" id="contactButton">Contact Us</a></li>
+                <li><a href="#aboutButton" id="aboutButton">About Us</a></li>
+                <li><a href="#serviceButton" id="serviceButton">Services</a></li>
+                <li><a href="#privacyButton" id="privacyButton">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>follow us</h4>
+            <div id="social_links">
+                <a href="http://www.linkedin.com/in/nil2510" target="_blank"><img src="../public/img/icon_linkedin.png"
+                        alt="LinkedIn"></a>
+                <a href="https://github.com/nil2510" target="_blank"><img src="../public/img/icon_github.png"
+                        alt="GitHub"></a>
+                <a href="https://twitter.com/SunilPradh50447" target="_blank"><img src="../public/img/icon_x.png"
+                        alt="X"></a>
+                <a href="https://www.instagram.com/nil__2510/" target="_blank"><img
+                        src="../public/img/icon_instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div>
+            <p>
+                © 2023 x. All rights reserved.
+                <br>
+                The content, images, graphics, and other materials on this website are protected by copyright and other
+                intellectual property laws. Any unauthorized use, reproduction, or distribution of the content on this
+                website is prohibited.
+                <br>
+                For inquiries regarding the use or reproduction of content from this website, please contact us at
+                sunilpradhan8526@gmail.com
+                <br>
+                All trademarks, logos, and service marks displayed on this website are the property of their respective
+                owners.
+            </p>
+        </div>
+    </footer>
+
+</body>
+<script src="../public/js/slide.js"></script>
+<script src="../public/js/about.js"></script>
+<script src="../public/js/contact.js"></script>
+<script src="../public/js/service.js"></script>
+<script src="../public/js/privacy.js"></script>
+
+</html>

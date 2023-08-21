@@ -1,0 +1,165 @@
+* {
+    font-family: 'Ropa Sans', sans-serif;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: url(../img/back.jpg);
+}
+
+/* navbar */
+nav {
+    display: flex;
+    height: 64px;
+    margin: 8px;
+    border-radius: 32px;
+    background-color: black;
+}
+
+.nav_items {
+    display: flex;
+    margin: 0px 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    width: 20%;
+}
+
+#logo a img {
+    height: 48px;
+    filter: invert(100%);
+}
+
+#nav_menu {
+    width: 80%;
+}
+
+#nav_menu li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.signtext {
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    
+    text-decoration: none;
+    margin: 0px 16px;
+    padding: 0px 16px;
+    border-radius: 24px;
+}
+
+.signtext:hover,
+.signtext:active {
+    font-weight: bold;
+    color: rgb(196, 0, 0);;
+}
+
+
+
+/* body */
+#container {
+    display: flex;
+    justify-content: center;
+    margin: 32px;
+}
+
+#container div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 64px;
+    margin: 32px;
+
+    border-radius: 32px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);
+    background-color: rgb(228 228 228 / 15%);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+form label {
+    font-weight: bold;
+    padding: 16px;
+}
+
+form input {
+    width: 400px;
+    font-size: 1.2rem;
+    height: 32px;
+    border-radius: 16px;
+    margin-bottom: 32px;
+    padding: 0px 16px;
+}
+
+form button {
+    align-self: center;
+    align-content: center;
+    height: 32px;
+    color: white;
+    margin-bottom: 32px;
+    background-color: rgb(196, 0, 0);
+    border-radius: 8px;
+    padding: 0px 20px;
+}
+
+table {
+    border-spacing: 8px 16px;
+}
+
+table th,
+table td {
+    color: black;
+    padding: 8px 16px;
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);
+    background-color: rgb(228 228 228 / 15%);
+}
+
+table td a img{
+    height: 20px;
+}
+
+/* footer */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+#links ul {
+    height: 64px;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+#links ul li a {
+    border-radius: 16px;
+    padding: 0px 16px;
+    text-decoration: none;
+    color: white;
+}
+
+#links ul li a:hover {
+    color: rgb(196, 0, 0);
+}
+
+#social_links a img {
+    margin: 8px 32px;
+    height: 24px;
+    filter: invert(100%);
+}
